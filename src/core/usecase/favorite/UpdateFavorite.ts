@@ -2,11 +2,7 @@ import { NotFoundError } from "../../../shared/error/NotFoundError";
 import FavoriteRepository from "../../repository/FavoriteRepository";
 
 export default class UpdateFavorite {
-  private favoriteRepository: FavoriteRepository;
-
-  constructor(favoriteRepository: FavoriteRepository) {
-    this.favoriteRepository = favoriteRepository;
-  }
+  constructor(private readonly favoriteRepository: FavoriteRepository) {}
 
   async execute(
     id: string,

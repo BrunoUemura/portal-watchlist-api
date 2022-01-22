@@ -1,15 +1,9 @@
-import { v4 as uuid } from "uuid";
-
 import { BadRequestError } from "../../../shared/error/BadRequestError";
-import { IUserInsert } from "../../interface/UserInterfaces";
+import IUserInsert from "../../interface/UserInterfaces";
 import UserRepository from "../../repository/UserRepository";
 
 export default class InsertUser {
-  private userRepository: UserRepository;
-
-  constructor(userRepository: UserRepository) {
-    this.userRepository = userRepository;
-  }
+  constructor(private readonly userRepository: UserRepository) {}
 
   async execute({ id, username, email }: IUserInsert) {
     const userExist = await this.userRepository.findByUsername(username);

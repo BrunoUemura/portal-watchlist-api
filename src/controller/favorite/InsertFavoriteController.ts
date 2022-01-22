@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import InsertFavorite from "../../core/usecase/favorite/InsertFavorite";
 import FavoriteRepositoryPostgreSQL from "../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL";
 import UserRepositoryPostgreSQL from "../../infra/database/postgres/repository/UserRepositoryPostgreSQL";
+import RequestValidation from "../../validation/RequestValidation";
 
 export default class InsertFavoriteController {
   static async handle(
@@ -10,6 +11,8 @@ export default class InsertFavoriteController {
     next: NextFunction
   ) {
     try {
+      await RequestValidation.validate(request);
+
       const { user_id, title, category, season, episode } = request.body;
       const userRepositoryPostgreSQL = new UserRepositoryPostgreSQL();
       const favoriteRepositoryPostgreSQL = new FavoriteRepositoryPostgreSQL();

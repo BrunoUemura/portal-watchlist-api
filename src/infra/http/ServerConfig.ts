@@ -1,5 +1,5 @@
 import "../config/EnvConfig";
-import "../queue/rabbitmq/rabbitmqConsumer";
+import "../queue/rabbitmq/RabbitmqConsumer";
 import express from "express";
 import cors from "cors";
 import logger from "morgan";

@@ -2,11 +2,7 @@ import { BadRequestError } from "../../../shared/error/BadRequestError";
 import FavoriteRepository from "../../repository/FavoriteRepository";
 
 export default class DeleteFavorite {
-  private favoriteRepository: FavoriteRepository;
-
-  constructor(favoriteRepository: FavoriteRepository) {
-    this.favoriteRepository = favoriteRepository;
-  }
+  constructor(private readonly favoriteRepository: FavoriteRepository) {}
 
   async execute(id: string) {
     const favorite = await this.favoriteRepository.findById(id);

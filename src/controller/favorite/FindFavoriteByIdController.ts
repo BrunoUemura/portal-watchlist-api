@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import FindFavoriteById from "../../core/usecase/favorite/FindFavoriteById";
 import FavoriteRepositoryPostgreSQL from "../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL";
+import AuthValidation from "../../validation/AuthValidation";
+import RequestValidation from "../../validation/RequestValidation";
 
 export default class FindFavoriteByIdController {
   static async handle(
