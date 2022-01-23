@@ -1,4 +1,4 @@
-import Favorite from "../entity/Favorite";
+import Favorite from '../entity/Favorite';
 
 export default interface FavoriteRepository {
   findById(id: string): Promise<Favorite>;
@@ -11,7 +11,7 @@ export default interface FavoriteRepository {
     title: string,
     category: string,
     season: number,
-    episode: number
+    episode: number,
   ): Promise<Favorite>;
   update(
     id: string,
@@ -19,7 +19,7 @@ export default interface FavoriteRepository {
     title: string,
     category: string,
     season: number,
-    episode: number
+    episode: number,
   ): Promise<Favorite>;
   delete(id: string): Promise<void>;
 }

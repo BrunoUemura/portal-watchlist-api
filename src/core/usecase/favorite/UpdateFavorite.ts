@@ -1,5 +1,5 @@
-import { NotFoundError } from "../../../shared/error/NotFoundError";
-import FavoriteRepository from "../../repository/FavoriteRepository";
+import { NotFoundError } from '../../../util/error/NotFoundError';
+import FavoriteRepository from '../../repository/FavoriteRepository';
 
 export default class UpdateFavorite {
   constructor(private readonly favoriteRepository: FavoriteRepository) {}
@@ -10,24 +10,25 @@ export default class UpdateFavorite {
     title: string,
     category: string,
     season: number,
-    episode: number
+    episode: number,
   ) {
     const favorite = await this.favoriteRepository.findById(id);
     if (!favorite) {
-      throw new NotFoundError("Title not found");
+      throw new NotFoundError('Title not found');
     }
+
     await this.favoriteRepository.update(
       id,
       user_id,
       title,
       category,
       season,
-      episode
+      episode,
     );
 
     return {
       status: 201,
-      message: "Title updated successfully",
+      message: 'Title updated successfully',
     };
   }
 }

@@ -1,5 +1,5 @@
-import { Connection, Channel, connect, Message } from "amqplib";
-import BrokerConnectionError from "../../../shared/error/BrokerConnectionError";
+import { Connection, Channel, connect, Message } from 'amqplib';
+import BrokerConnectionError from '../../../util/error/BrokerConnectionError';
 
 export default class RabbitmqServer {
   private conn: Connection;
@@ -11,9 +11,9 @@ export default class RabbitmqServer {
     try {
       this.conn = await connect(this.uri);
       this.channel = await this.conn.createChannel();
-      console.log("==> RabbitMQ: OK");
+      console.log('==> RabbitMQ: OK');
     } catch (error) {
-      console.log("==> RabbitMQ: Error connecting to Broker");
+      console.log('==> RabbitMQ: Error connecting to Broker');
       throw new BrokerConnectionError();
     }
   }
@@ -25,13 +25,13 @@ export default class RabbitmqServer {
   async publishInExchange(
     exchange: string,
     routingKey: string,
-    message: string
+    message: string,
   ): Promise<boolean> {
     return this.channel.publish(exchange, routingKey, Buffer.from(message));
   }
 
   async consume(queue: string, callback: (message: Message) => void) {
-    return this.channel.consume(queue, (message) => {
+    return this.channel.consume(queue, message => {
       callback(message);
       this.channel.ack(message);
     });

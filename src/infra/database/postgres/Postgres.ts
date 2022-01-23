@@ -1,5 +1,5 @@
-import { Client } from "pg";
-import { DatabaseConnectionError } from "../../../shared/error/DatabaseConnectionError";
+import { Client } from 'pg';
+import { DatabaseConnectionError } from '../../../util/error/DatabaseConnectionError';
 
 export default class Postgres {
   async connect() {
@@ -12,10 +12,10 @@ export default class Postgres {
         port: Number(process.env.DB_PORT),
       });
       await client.connect();
-      console.log("==> PostgreSQL: OK");
+      console.log('==> PostgreSQL: OK');
       return client;
     } catch (error) {
-      console.log("==> PostgreSQL: Error connecting to database");
+      console.log('==> PostgreSQL: Error connecting to database');
       throw new DatabaseConnectionError();
     }
   }
@@ -24,7 +24,7 @@ export default class Postgres {
     try {
       return await client.end();
     } catch (error) {
-      console.log("==> PostgreSQL: Error disconnecting from database");
+      console.log('==> PostgreSQL: Error disconnecting from database');
       throw new DatabaseConnectionError();
     }
   }

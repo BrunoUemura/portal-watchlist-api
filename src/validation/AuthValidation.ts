@@ -1,22 +1,28 @@
-import { Request, NextFunction } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { UnauthorizedError } from '../shared/error/UnauthorizedError';
+import { UnauthorizedError } from '../util/error/UnauthorizedError';
 
-export default class AuthValidation {
-  static async validate(req: Request, next: NextFunction) {
-    try {
-      const { authorization } = req.headers;
+export const authMiddleware = async (
+  req: Request,
+  _res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { authorization } = req.headers;
 
-      if (!authorization) {
-        throw new UnauthorizedError('Missing JWT token');
-      }
-
-      const token = authorization.replace('Bearer', '').trim();
-      jwt.verify(token, String(process.env.JWT_SECRET));
-
-      return;
-    } catch (error) {
-      next(error);
+    if (!authorization) {
+      throw new UnauthorizedError('Missing JWT token');
     }
+
+    const token = authorization.replace('Bearer', '').trim();
+    if (!token) {
+      throw new UnauthorizedError('Missing JWT token');
+    }
+
+    jwt.verify(token, String(process.env.JWT_SECRET));
+
+    return next();
+  } catch (error) {
+    next(error);
   }
-}
+};

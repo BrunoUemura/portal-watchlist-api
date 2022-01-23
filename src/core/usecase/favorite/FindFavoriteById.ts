@@ -1,4 +1,4 @@
-import FavoriteRepository from "../../repository/FavoriteRepository";
+import FavoriteRepository from '../../repository/FavoriteRepository';
 
 export default class FindFavoriteById {
   constructor(private readonly favoriteRepository: FavoriteRepository) {}

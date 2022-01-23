@@ -1,6 +1,6 @@
-import Favorite from "../../../../core/entity/Favorite";
-import FavoriteRepository from "../../../../core/repository/FavoriteRepository";
-import Postgres from "../Postgres";
+import Favorite from '../../../../core/entity/Favorite';
+import FavoriteRepository from '../../../../core/repository/FavoriteRepository';
+import Postgres from '../Postgres';
 
 export default class FavoriteRepositoryPostgreSQL
   implements FavoriteRepository
@@ -11,7 +11,7 @@ export default class FavoriteRepositoryPostgreSQL
       const database = await postgres.connect();
       const { rows }: any = await database.query(
         `SELECT * FROM watchlist WHERE id = $1`,
-        [id]
+        [id],
       );
 
       await postgres.disconnect(database);
@@ -40,7 +40,7 @@ export default class FavoriteRepositoryPostgreSQL
     const database = await postgres.connect();
     const { rows }: any = await database.query(
       `SELECT * FROM watchlist WHERE user_id = $1`,
-      [user_id]
+      [user_id],
     );
 
     await postgres.disconnect(database);
@@ -57,7 +57,7 @@ export default class FavoriteRepositoryPostgreSQL
     const database = await postgres.connect();
     const { rows }: any = await database.query(
       `SELECT * FROM watchlist WHERE title = $1`,
-      [title]
+      [title],
     );
 
     await postgres.disconnect(database);
@@ -83,7 +83,7 @@ export default class FavoriteRepositoryPostgreSQL
     const database = await postgres.connect();
     const { rows }: any = await database.query(
       `SELECT * FROM watchlist WHERE category = $1`,
-      [category]
+      [category],
     );
 
     await postgres.disconnect(database);
@@ -110,13 +110,13 @@ export default class FavoriteRepositoryPostgreSQL
     title: string,
     category: string,
     season: number,
-    episode: number
+    episode: number,
   ): Promise<Favorite> {
     const postgres = new Postgres();
     const database = await postgres.connect();
     await database.query(
       `INSERT INTO watchlist (id, user_id, title, category, season, episode) VALUES ($1, $2, $3, $4, $5, $6)`,
-      [id, user_id, title, category, season, episode]
+      [id, user_id, title, category, season, episode],
     );
 
     const favorite = await this.findById(id);
@@ -131,13 +131,13 @@ export default class FavoriteRepositoryPostgreSQL
     title: string,
     category: string,
     season: number,
-    episode: number
+    episode: number,
   ): Promise<Favorite> {
     const postgres = new Postgres();
     const database = await postgres.connect();
     await database.query(
       `UPDATE watchlist SET user_id = $2, title = $3, category = $4, season = $5, episode = $6 WHERE id = $1`,
-      [id, user_id, title, category, season, episode]
+      [id, user_id, title, category, season, episode],
     );
 
     const favorite = await this.findById(id);

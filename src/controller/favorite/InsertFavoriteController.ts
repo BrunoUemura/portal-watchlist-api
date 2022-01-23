@@ -1,14 +1,14 @@
-import { NextFunction, Request, Response } from "express";
-import InsertFavorite from "../../core/usecase/favorite/InsertFavorite";
-import FavoriteRepositoryPostgreSQL from "../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL";
-import UserRepositoryPostgreSQL from "../../infra/database/postgres/repository/UserRepositoryPostgreSQL";
-import RequestValidation from "../../validation/RequestValidation";
+import { NextFunction, Request, Response } from 'express';
+import InsertFavorite from '../../core/usecase/favorite/InsertFavorite';
+import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
+import UserRepositoryPostgreSQL from '../../infra/database/postgres/repository/UserRepositoryPostgreSQL';
+import RequestValidation from '../../validation/RequestValidation';
 
 export default class InsertFavoriteController {
   static async handle(
     request: Request,
     response: Response,
-    next: NextFunction
+    next: NextFunction,
   ) {
     try {
       await RequestValidation.validate(request);
@@ -18,14 +18,14 @@ export default class InsertFavoriteController {
       const favoriteRepositoryPostgreSQL = new FavoriteRepositoryPostgreSQL();
       const insertFavorite = new InsertFavorite(
         userRepositoryPostgreSQL,
-        favoriteRepositoryPostgreSQL
+        favoriteRepositoryPostgreSQL,
       );
       const result = await insertFavorite.execute(
         user_id,
         title,
         category,
         season,
-        episode
+        episode,
       );
       return response.json(result);
     } catch (error) {

@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { server } from '../../src/infra/http/ServerConfig';
-import { HttpStatusCodes } from '../../src/shared/enum/HttpStatusCodes';
+import { HttpStatusCodes } from '../../src/util/enum/HttpStatusCodes';
 
 describe('Test Find Favorite By Title', () => {
   it('should return Favorite By Title info', async () => {

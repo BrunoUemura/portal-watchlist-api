@@ -1,5 +1,5 @@
-import { HttpStatusCodes } from "../enum/HttpStatusCodes";
-import { CustomError } from "./CustomError";
+import { HttpStatusCodes } from '../enum/HttpStatusCodes';
+import { CustomError } from './CustomError';
 
 export class BadRequestError extends CustomError {
   statusCode = HttpStatusCodes.BAD_REQUEST;

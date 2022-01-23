@@ -1,12 +1,12 @@
-import { HttpStatusCodes } from "../enum/HttpStatusCodes";
-import { CustomError } from "./CustomError";
+import { HttpStatusCodes } from '../enum/HttpStatusCodes';
+import { CustomError } from './CustomError';
 
 export default class BrokerConnectionError extends CustomError {
   statusCode = HttpStatusCodes.INTERNAL_SERVER_ERROR;
-  reason = "Broker Connection Error";
+  reason = 'Broker Connection Error';
 
   constructor() {
-    super("Broker Connection Error");
+    super('Broker Connection Error');
     Object.setPrototypeOf(this, BrokerConnectionError.prototype);
   }
 

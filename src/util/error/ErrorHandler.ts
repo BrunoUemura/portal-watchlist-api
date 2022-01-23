@@ -1,12 +1,12 @@
-import { Request, Response, NextFunction } from "express";
-import { HttpStatusCodes } from "../enum/HttpStatusCodes";
-import { CustomError } from "./CustomError";
+import { Request, Response, NextFunction } from 'express';
+import { HttpStatusCodes } from '../enum/HttpStatusCodes';
+import { CustomError } from './CustomError';
 
 export const errorHandler = (
   err: Error,
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ) => {
   if (err instanceof CustomError) {
     return res
@@ -16,6 +16,6 @@ export const errorHandler = (
 
   res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).send({
     status: HttpStatusCodes.INTERNAL_SERVER_ERROR,
-    errors: [{ message: "Something went wrong" }],
+    errors: [{ message: 'Something went wrong' }],
   });
 };

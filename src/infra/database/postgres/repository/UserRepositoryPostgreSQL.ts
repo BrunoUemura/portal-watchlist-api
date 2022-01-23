@@ -1,6 +1,6 @@
-import User from "../../../../core/entity/User";
-import UserRepository from "../../../../core/repository/UserRepository";
-import Postgres from "../Postgres";
+import User from '../../../../core/entity/User';
+import UserRepository from '../../../../core/repository/UserRepository';
+import Postgres from '../Postgres';
 
 export default class UserRepositoryPostgreSQL implements UserRepository {
   async findById(id: string): Promise<User> {
@@ -8,7 +8,7 @@ export default class UserRepositoryPostgreSQL implements UserRepository {
     const database = await postgres.connect();
     const { rows }: any = await database.query(
       `SELECT * FROM users WHERE id = $1`,
-      [id]
+      [id],
     );
 
     await postgres.disconnect(database);
@@ -30,7 +30,7 @@ export default class UserRepositoryPostgreSQL implements UserRepository {
     const database = await postgres.connect();
     const { rows }: any = await database.query(
       `SELECT * FROM users WHERE username = $1`,
-      [username]
+      [username],
     );
 
     await postgres.disconnect(database);
@@ -52,7 +52,7 @@ export default class UserRepositoryPostgreSQL implements UserRepository {
     const database = await postgres.connect();
     await database.query(
       `INSERT INTO users (id, username, email) VALUES ($1, $2, $3)`,
-      [id, username, email]
+      [id, username, email],
     );
 
     const user = await this.findByUsername(username);

@@ -1,18 +1,18 @@
-import { NextFunction, Request, Response } from "express";
-import FindFavoriteByTitle from "../../core/usecase/favorite/FindFavoriteByTitle";
-import FavoriteRepositoryPostgreSQL from "../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL";
+import { NextFunction, Request, Response } from 'express';
+import FindFavoriteByTitle from '../../core/usecase/favorite/FindFavoriteByTitle';
+import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
 
 export default class FindFavoriteByTitleController {
   static async handle(
     request: Request,
     response: Response,
-    next: NextFunction
+    next: NextFunction,
   ) {
     try {
       const { title } = request.params;
       const favoriteRepositoryPostgreSQL = new FavoriteRepositoryPostgreSQL();
       const findFavoriteByTitle = new FindFavoriteByTitle(
-        favoriteRepositoryPostgreSQL
+        favoriteRepositoryPostgreSQL,
       );
       const result = await findFavoriteByTitle.execute(title);
       return response.json(result);

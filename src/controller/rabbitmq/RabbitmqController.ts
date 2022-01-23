@@ -1,5 +1,5 @@
-import InsertUser from "../../core/usecase/user/InsertUser";
-import UserRepositoryPostgreSQL from "../../infra/database/postgres/repository/UserRepositoryPostgreSQL";
+import InsertUser from '../../core/usecase/user/InsertUser';
+import UserRepositoryPostgreSQL from '../../infra/database/postgres/repository/UserRepositoryPostgreSQL';
 
 type IUsersCreate = {
   type: string;
@@ -15,7 +15,7 @@ export default class RabbitmqController {
     const insertUser = new InsertUser(userRepositoryPostgreSQL);
 
     switch (message.type) {
-      case "UserCreation":
+      case 'UserCreation':
         const user = {
           id: message.id,
           username: message.username,

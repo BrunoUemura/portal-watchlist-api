@@ -1,12 +1,16 @@
 import { Request } from 'express';
-import { BadRequestError } from '../shared/error/BadRequestError';
+import { BadRequestError } from '../util/error/BadRequestError';
 
 export default class RequestValidation {
   static async validate(request: Request) {
     const body = request.body;
 
-    if (request.method === 'POST' || request.method === 'PUT') {
-      await this.validateBody(body);
+    try {
+      if (request.method === 'POST' || request.method === 'PUT') {
+        await this.validateBody(body);
+      }
+    } catch (error) {
+      throw error;
     }
   }
 

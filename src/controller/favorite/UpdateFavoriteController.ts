@@ -1,18 +1,16 @@
-import { NextFunction, Request, Response } from "express";
-import UpdateFavorite from "../../core/usecase/favorite/UpdateFavorite";
-import FavoriteRepositoryPostgreSQL from "../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL";
-import AuthValidation from "../../validation/AuthValidation";
-import RequestValidation from "../../validation/RequestValidation";
+import { NextFunction, Request, Response } from 'express';
+import UpdateFavorite from '../../core/usecase/favorite/UpdateFavorite';
+import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
+import RequestValidation from '../../validation/RequestValidation';
 
 export default class UpdateFavoriteController {
   static async handle(
     request: Request,
     response: Response,
-    next: NextFunction
+    next: NextFunction,
   ) {
     try {
       await RequestValidation.validate(request);
-      await AuthValidation.validate(request, next);
 
       const { id } = request.params;
       const { user_id, title, category, season, episode } = request.body;
@@ -24,7 +22,7 @@ export default class UpdateFavoriteController {
         title,
         category,
         season,
-        episode
+        episode,
       );
       return response.json(result);
     } catch (error) {

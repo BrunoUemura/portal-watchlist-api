@@ -1,5 +1,4 @@
-import { BadRequestError } from "../../../shared/error/BadRequestError";
-import FavoriteRepository from "../../repository/FavoriteRepository";
+import FavoriteRepository from '../../repository/FavoriteRepository';
 
 export default class FindFavoriteByTitle {
   constructor(private readonly favoriteRepository: FavoriteRepository) {}
