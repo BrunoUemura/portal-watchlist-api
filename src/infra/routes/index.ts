@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { NotFoundError } from '../../util/error/NotFoundError';
-import { watchlist } from './watchlist.routes';
+import { NotFoundError } from '@src/util/error/NotFoundError';
+import { watchlist } from '@src/infra/routes/watchlist.routes';
 
 const routes = Router();
 

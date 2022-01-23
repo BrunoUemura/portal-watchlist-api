@@ -1,5 +1,5 @@
-import InsertUser from '../../core/usecase/user/InsertUser';
-import UserRepositoryPostgreSQL from '../../infra/database/postgres/repository/UserRepositoryPostgreSQL';
+import InsertUser from '@src/core/usecase/user/InsertUser';
+import UserRepositoryPostgreSQL from '@src/infra/database/postgres/repository/UserRepositoryPostgreSQL';
 
 type IUsersCreate = {
   type: string;

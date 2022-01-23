@@ -1,6 +1,6 @@
-import Favorite from '../../../../core/entity/Favorite';
-import FavoriteRepository from '../../../../core/repository/FavoriteRepository';
-import Postgres from '../Postgres';
+import Favorite from '@src/core/entity/Favorite';
+import FavoriteRepository from '@src/core/repository/FavoriteRepository';
+import Postgres from '@src/infra/database/postgres/Postgres';
 
 export default class FavoriteRepositoryPostgreSQL
   implements FavoriteRepository

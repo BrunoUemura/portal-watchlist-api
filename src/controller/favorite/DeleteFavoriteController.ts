@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import DeleteFavorite from '../../core/usecase/favorite/DeleteFavorite';
-import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
+import DeleteFavorite from '@src/core/usecase/favorite/DeleteFavorite';
+import FavoriteRepositoryPostgreSQL from '@src/infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
 
 export default class DeleteFavoriteController {
   static async handle(

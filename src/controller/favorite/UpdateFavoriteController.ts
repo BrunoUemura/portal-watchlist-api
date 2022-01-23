@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import UpdateFavorite from '../../core/usecase/favorite/UpdateFavorite';
-import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
-import RequestValidation from '../../validation/RequestValidation';
+import UpdateFavorite from '@src/core/usecase/favorite/UpdateFavorite';
+import FavoriteRepositoryPostgreSQL from '@src/infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
+import RequestValidation from '@src/validation/RequestValidation';
 
 export default class UpdateFavoriteController {
   static async handle(

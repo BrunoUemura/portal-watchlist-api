@@ -1,4 +1,4 @@
-import User from '../entity/User';
+import User from '@src/core/entity/User';
 
 export default interface UserRepository {
   findById(id: string): Promise<User>;

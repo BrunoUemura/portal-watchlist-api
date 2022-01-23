@@ -1,4 +1,4 @@
-import Favorite from '../entity/Favorite';
+import Favorite from '@src/core/entity/Favorite';
 
 export default interface FavoriteRepository {
   findById(id: string): Promise<Favorite>;

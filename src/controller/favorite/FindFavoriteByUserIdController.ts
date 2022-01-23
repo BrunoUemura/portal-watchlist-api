@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import FindFavoriteByUserId from '../../core/usecase/favorite/FindFavoriteByUserId';
-import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
-import UserRepositoryPostgreSQL from '../../infra/database/postgres/repository/UserRepositoryPostgreSQL';
+import FindFavoriteByUserId from '@src/core/usecase/favorite/FindFavoriteByUserId';
+import FavoriteRepositoryPostgreSQL from '@src/infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
+import UserRepositoryPostgreSQL from '@src/infra/database/postgres/repository/UserRepositoryPostgreSQL';
 
 export default class FindFavoriteByUserIdController {
   static async handle(

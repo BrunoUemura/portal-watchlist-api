@@ -1,5 +1,5 @@
-import { BadRequestError } from '../../../util/error/BadRequestError';
-import FavoriteRepository from '../../repository/FavoriteRepository';
+import { BadRequestError } from '@src/util/error/BadRequestError';
+import FavoriteRepository from '@src/core/repository/FavoriteRepository';
 
 export default class DeleteFavorite {
   constructor(private readonly favoriteRepository: FavoriteRepository) {}

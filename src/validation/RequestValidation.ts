@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { BadRequestError } from '../util/error/BadRequestError';
+import { BadRequestError } from '@src/util/error/BadRequestError';
 
 export default class RequestValidation {
   static async validate(request: Request) {

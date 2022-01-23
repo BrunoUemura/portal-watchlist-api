@@ -1,6 +1,6 @@
-import { BadRequestError } from '../../../util/error/BadRequestError';
-import FavoriteRepository from '../../repository/FavoriteRepository';
-import UserRepository from '../../repository/UserRepository';
+import { BadRequestError } from '@src/util/error/BadRequestError';
+import FavoriteRepository from '@src/core/repository/FavoriteRepository';
+import UserRepository from '@src/core/repository/UserRepository';
 
 export default class FindFavoriteByUserId {
   constructor(

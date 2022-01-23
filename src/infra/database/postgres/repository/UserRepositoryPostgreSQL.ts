@@ -1,6 +1,6 @@
-import User from '../../../../core/entity/User';
-import UserRepository from '../../../../core/repository/UserRepository';
-import Postgres from '../Postgres';
+import User from '@src/core/entity/User';
+import UserRepository from '@src/core/repository/UserRepository';
+import Postgres from '@src/infra/database/postgres/Postgres';
 
 export default class UserRepositoryPostgreSQL implements UserRepository {
   async findById(id: string): Promise<User> {

@@ -1,5 +1,5 @@
-import { NotFoundError } from '../../../util/error/NotFoundError';
-import FavoriteRepository from '../../repository/FavoriteRepository';
+import { NotFoundError } from '@src/util/error/NotFoundError';
+import FavoriteRepository from '@src/core/repository/FavoriteRepository';
 
 export default class UpdateFavorite {
   constructor(private readonly favoriteRepository: FavoriteRepository) {}

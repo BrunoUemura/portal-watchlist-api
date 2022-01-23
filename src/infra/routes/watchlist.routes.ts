@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import DeleteFavoriteController from '../../controller/favorite/DeleteFavoriteController';
-import FindFavoriteByCategoryController from '../../controller/favorite/FindFavoriteByCategoryController';
-import FindFavoriteByIdController from '../../controller/favorite/FindFavoriteByIdController';
-import FindFavoriteByTitleController from '../../controller/favorite/FindFavoriteByTitleController';
-import FindFavoriteByUserIdController from '../../controller/favorite/FindFavoriteByUserIdController';
-import InsertFavoriteController from '../../controller/favorite/InsertFavoriteController';
-import UpdateFavoriteController from '../../controller/favorite/UpdateFavoriteController';
-import { authMiddleware } from '../../validation/AuthValidation';
+import DeleteFavoriteController from '@src/controller/favorite/DeleteFavoriteController';
+import FindFavoriteByCategoryController from '@src/controller/favorite/FindFavoriteByCategoryController';
+import FindFavoriteByIdController from '@src/controller/favorite/FindFavoriteByIdController';
+import FindFavoriteByTitleController from '@src/controller/favorite/FindFavoriteByTitleController';
+import FindFavoriteByUserIdController from '@src/controller/favorite/FindFavoriteByUserIdController';
+import InsertFavoriteController from '@src/controller/favorite/InsertFavoriteController';
+import UpdateFavoriteController from '@src/controller/favorite/UpdateFavoriteController';
+import { authMiddleware } from '@src/validation/AuthValidation';
 
 const watchlist = Router();
 

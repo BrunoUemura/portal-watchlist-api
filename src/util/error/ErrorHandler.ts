@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpStatusCodes } from '../enum/HttpStatusCodes';
-import { CustomError } from './CustomError';
+import { HttpStatusCodes } from '@src/util/enum/HttpStatusCodes';
+import { CustomError } from '@src/util/error/CustomError';
 
 export const errorHandler = (
   err: Error,

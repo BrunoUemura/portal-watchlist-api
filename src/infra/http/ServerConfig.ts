@@ -1,10 +1,10 @@
-import '../config/EnvConfig';
-import '../queue/rabbitmq/RabbitmqConsumer';
 import express from 'express';
 import cors from 'cors';
 import logger from 'morgan';
-import { routes } from '../routes';
-import { errorHandler } from '../../util/error/ErrorHandler';
+import '@src/infra/config/EnvConfig';
+import '@src/infra/queue/rabbitmq/RabbitmqConsumer';
+import { errorHandler } from '@src/util/error/ErrorHandler';
+import { routes } from '@src/infra/routes';
 
 const server = express();
 

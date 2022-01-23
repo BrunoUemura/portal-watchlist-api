@@ -1,5 +1,5 @@
-import RabbitmqServer from './RabbitmqServer';
-import RabbitmqController from '../../../controller/rabbitmq/RabbitmqController';
+import RabbitmqServer from '@src/infra/queue/rabbitmq/RabbitmqServer';
+import RabbitmqController from '@src/controller/rabbitmq/RabbitmqController';
 
 (async () => {
   const server = new RabbitmqServer(process.env.RABBITMQ_URL);

@@ -1,7 +1,7 @@
 import crypto from 'crypto';
-import { NotFoundError } from '../../../util/error/NotFoundError';
-import FavoriteRepository from '../../repository/FavoriteRepository';
-import UserRepository from '../../repository/UserRepository';
+import { NotFoundError } from '@src/util/error/NotFoundError';
+import FavoriteRepository from '@src/core/repository/FavoriteRepository';
+import UserRepository from '@src/core/repository/UserRepository';
 
 export default class InsertFavorite {
   constructor(

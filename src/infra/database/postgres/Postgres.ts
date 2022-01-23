@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import { DatabaseConnectionError } from '../../../util/error/DatabaseConnectionError';
+import { DatabaseConnectionError } from '@src/util/error/DatabaseConnectionError';
 
 export default class Postgres {
   async connect() {

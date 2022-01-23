@@ -1,12 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "es2020",
+    "moduleResolution": "node",
     "module": "commonjs",
-    "rootDir": ".",
-    "outDir": "./dist",
+    "lib": ["es2020"],
+    "outDir": "dist",
     "strict": false,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@test/*": ["./test/*"]
+    },
+    "rootDirs": ["./src", "./test"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["./src/**/*.ts", "./test/**/*.ts"],
+  "exclude": ["./node_modules/*", "dist"]
 }

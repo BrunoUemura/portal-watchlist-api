@@ -1,5 +1,5 @@
 import { Connection, Channel, connect, Message } from 'amqplib';
-import BrokerConnectionError from '../../../util/error/BrokerConnectionError';
+import BrokerConnectionError from '@src/util/error/BrokerConnectionError';
 
 export default class RabbitmqServer {
   private conn: Connection;

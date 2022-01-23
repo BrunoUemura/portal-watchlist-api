@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import FindFavoriteByCategory from '../../core/usecase/favorite/FindFavoriteByCategory';
-import FavoriteRepositoryPostgreSQL from '../../infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
+import FindFavoriteByCategory from '@src/core/usecase/favorite/FindFavoriteByCategory';
+import FavoriteRepositoryPostgreSQL from '@src/infra/database/postgres/repository/FavoriteRepositoryPostgreSQL';
 
 export default class FindFavoriteByCategoryController {
   static async handle(
